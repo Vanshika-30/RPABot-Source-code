@@ -22,8 +22,8 @@ public class UploadQues {
 		WebDriver driver = null;
 		String browser = "chrome";
 		String url = "jdbc:mysql://localhost:3306/question";
-		String uname = "root";
-		String pass = "Learn#30";
+		String uname = "";
+		String pass = "";
 		String path_excel = "Questions.xlsx";
 		String url_form = "file:///Users/vanshikajain/eclipse-workspace/RPABot/index.html";
 		
