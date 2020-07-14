@@ -27,17 +27,24 @@
 </head>
 
 <body>
+	
+	<!-- <p id="dbname"></p> -->
+	<!-- <p id="uname"></p>
+	<p id="psw"></p> -->
+	<!-- <h1 id="file"></h1> -->
+	
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title"><b>Question Upload Form</b></h2>
-                    <form method="POST">
+                    <form name="form" method=GET action="" onsubmit="required()" >
                         <div class="row row-space">
                             <!-- <div class="col"> -->
                                 <div class="input-group">
                                     <label class="label">Question: </label>
-                                    <textarea class="input--style-4" name="ques" cols="50"></textarea>
+                                    <textarea class="input--style-4" name="ques" cols="50" id="ques" required></textarea>
+                                    <!-- <label class="label" id="q_lbl"></label> -->
                                 </div>
                             <!-- </div> -->
                         </div>
@@ -46,8 +53,8 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Option 1</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="op1">
+                                    <div class="input-group-icon" >
+                                        <input class="input--style-4" type="text" name="op1" id="op1" required>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +62,8 @@
                                 <div class="input-group">
                                     <label class="label">Option 2</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="op2">
-                                        <!-- <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> -->
+                                        <input class="input--style-4" type="text" name="op2" id="op2" required>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +73,7 @@
                                 <div class="input-group">
                                     <label class="label">Option 3</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="op3">
+                                        <input class="input--style-4" type="text" name="op3" id="op3">
                                         <!-- <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> -->
                                     </div>
                                 </div>
@@ -75,7 +82,7 @@
                                 <div class="input-group">
                                     <label class="label">Option 4</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="op4">
+                                        <input class="input--style-4" type="text" name="op4" id="op4">
                                         <!-- <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> -->
                                     </div>
                                 </div>
@@ -87,17 +94,19 @@
                                 <div class="input-group">
                                     <label class="label">Answer</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="ans">
+                                        <input class="input--style-4" type="text" name="ans" id="ans" required>
                                         <!-- <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> -->
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="p-t-15">
-                            <input class="btn btn--radius-2 btn--blue" name="Submit" type="submit">
-                            <!-- <a href= "redirect.html">SUBMIT</a> -->
-                            <!-- <button type="submit" formaction="file:///Users/vanshikajain/eclipse-workspace/RPABot/redirect.html" name="register">Submit</button> -->
+                        <div class="btn-group">
+                            <!-- <input class="btn btn--radius-2 btn--blue" name="Submit" type="submit"> -->
+                            <button  type="submit" formaction="redirect.html" name="submit" id="btn">Save</button>
+                            <button  type="submit" formaction="redirect1.html" name="modify" id="btn" onchange="return doFormat()">Modify and Save</button>
+                           	<button  type="submit" name="delete" value="1" formaction="redirect2.html" id="btn" >Delete</button>
+                          
                         </div>
                     </form>
 	          </div>
@@ -114,6 +123,108 @@
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
+    <script src="non-empty.js"></script>
+    
+    <script>
+	    function ConfirmDelete()
+	    {
+	      var x = confirm("Are you sure you want to delete?");
+	      if (x)
+	          return true;
+	      else
+	        return false;
+	    }
+	    
+	    function required()
+	    {
+	    	var empt1 = document.forms["form"]["ques"].value;
+	    	var empt2 = document.forms["form"]["op1"].value;
+	    	var empt3 = document.forms["form"]["op2"].value;
+	    	var empt4 = document.forms["form"]["ans"].value;
+	    	
+	    	/* if(empt1 == ""){
+	    		alert("Please enter question");
+	    		event.preventDefault();
+	    		return false;
+	    	} 
+	    	else */ if(empt2 == ""){
+	    		alert("Please enter atleast 2 options");
+	    		event.preventDefault();
+	    		return false;
+	    	}
+	    	else if(empt3 == ""){
+	    		alert("Please enter atleast 2 options");
+	    		event.preventDefault();
+	    		return false;
+	    	}
+	    	else if(empt4 == ""){
+	    		alert("Please enter an answer");
+	    		event.preventDefault();
+	    		return false;
+	    	}
+	    	return true;
+	    }
+	    function doFormat(){
+	    	var v1 = ques.value;
+	    	var v2 = op1.value;
+	    	var v3 = op2.value;
+	    	var v4 = op3.value;
+	    	var v5 = op4.value;
+	    	var v6 = ans.value;
+	    	
+	    	var queryString = "?" + v1 + "&para2=" + v2+ "&para3=" + v3+ "&para4=" + v4+ "&para5=" + v5+ "&para6=" + v6;
+	    	window.location.href = "redirect1.html" + queryString;
+	    }
+	</script>  
+	
+	
+	<script>
+ 
+	var queryString = decodeURIComponent(window.location.search);
+	queryString = queryString.substring(1);
+	var queries = queryString.split("&");
+	
+	/* var q = "";
+	var text1 = queries[0].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  text1[i];
+	}
+	dbname.innerHTML = q.toString();
+	
+	var q = "";
+	var text1 = queries[1].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  text1[i];
+	}
+	uname.innerHTML = q.toString();
+	
+	var q = "";
+	var text1 = queries[2].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  text1[i];
+	}
+	psw.innerHTML = q.toString(); */
+	
+	var q = "";
+	var text1 = queries[3].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  text1[i];
+	}
+	file.innerHTML = q.toString();
+	
+	</script> 
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

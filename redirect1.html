@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Question Upload Form</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title"><b>Question Upload Status</b></h2>
+                    <form method="POST">
+                        <p>Modified and submitted Successfully</p>
+                     
+                     	<p>Modified Contents</p>
+                        <p id="v1" ></p>
+                        <p id="v2" ></p>
+                        <p id="v3" ></p>
+                        <p id="v4" ></p>
+                        <p id="v5" ></p>
+                        <p id="v6" ></p>
+                        
+                        <a href="index.html">Next Question</a>
+                        
+                    </form>
+	          </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+ 
+	var queryString = decodeURIComponent(window.location.search);
+	queryString = queryString.substring(1);
+	var queries = queryString.split("&");
+	
+	var q = "";
+	var text1 = queries[0].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  " " + text1[i];
+	}
+	v1.innerHTML = q.toString();
+	
+	var q = "";
+	var text1 = queries[1].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  " " + text1[i];
+	}
+	v2.innerHTML = q.toString();
+	
+	var q = "";
+	var text1 = queries[2].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  " " + text1[i];
+	}
+	v3.innerHTML = q.toString();
+	
+	var q = "";
+	var text1 = queries[3].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  " " + text1[i];
+	}
+	v4.innerHTML = q.toString();
+	
+	var q = "";
+	var text1 = queries[4].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  " " + text1[i];
+	}
+	v5.innerHTML = q.toString();
+	
+	var q = "";
+	var text1 = queries[5].split("+");
+	var t2 = text1[0].split("=");
+	q += t2[1];
+	for (var i = 1; i < text1.length; i++)
+	{
+  	q +=  " " + text1[i];
+	}
+	v6.innerHTML = q.toString();
+	
+	
+ 
+</script> 
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

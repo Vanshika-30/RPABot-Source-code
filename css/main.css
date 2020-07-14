@@ -640,3 +640,26 @@ input {
     padding: 50px 40px;
   }
 }
+
+.btn-group button {
+  background-color: #4CAF50; /* Green background */
+  border: 5px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 50px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  font-size: 15px;
+  /* float: left; */ /* Float the buttons side by side */
+}
+
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
